@@ -1,0 +1,47 @@
+#nombreEstado{
+    font-weight: bold;
+    font-style: italic;
+}
+.botones{
+    display: flex;
+    flex-direction: column;
+    gap:5px
+}
+
+.botones .btn{
+    font-weight: bold;
+    font-size: 1.3em;
+}
+.score{
+    font-weight: bold;
+    font-size: 1.5em;
+    color:red
+}
+#estadoCorrecto {
+	font-size: 2em;
+}
+.bg, .btm-img{
+    position: absolute;
+    top:0;
+    max-width: 700px;
+    width: 100%;
+    z-index: -1;
+    transform: translateX(-50%);
+    left:50%;
+}
+img{
+    width: 100%;
+}
+.btm-img{
+    height: 100svh;
+}
+.btm-img img{
+    bottom:0;
+    position: absolute;
+}
+.btn-big{
+    font-size: 1.5em;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
