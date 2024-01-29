@@ -118,4 +118,5 @@ async function corregirEstado(nombre){
 function terminoJuego(){
     alert('Juego finalizado, tu puntuación fué de ' + score)
     newGameBtn.classList.remove('d-none')
+    estadosVistos = new Array()
 }
