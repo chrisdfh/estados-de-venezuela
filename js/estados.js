@@ -6,11 +6,13 @@ const scorePlaceholder = document.querySelector('#score')
 const newGameBtn = document.querySelector('#newGameBtn')
 const estadoCorrectoPlaceholder = document.querySelector('#estadoCorrectoPlaceholder')
 const estadoCorrectoName = document.querySelector('#estadoCorrecto')
+const numOpciones = document.querySelector('#cant-opciones')
+
 let estadosVistos = new Array()
 let estadosJson
 let score = 0
 
-fetch('./estados.json').then(res=>res.json()).then(data=>{estadosJson = data ; preparaCapitales()})
+fetch('./estados.json').then(res=>res.json()).then(data=>{estadosJson = data;})
 
 Array.prototype.aleatorio = function(){
     return this[Math.floor((Math.random()*this.length))]
@@ -25,9 +27,10 @@ async function preparaCapitales(){
     }
     
     newGameBtn.classList.add('d-none')
+    numOpciones.classList.add('d-none')
     estadoCorrectoPlaceholder.classList.add('d-none')
     scorePlaceholder.innerText = score
-    const OPCIONES = 4 // CANTIDAD DE OPCIONES A MOSTRAR
+    const OPCIONES = numOpciones.value // CANTIDAD DE OPCIONES A MOSTRAR
 
     while (preguntas.length < OPCIONES){
         preguntas.push(estadosJson.aleatorio())
@@ -102,6 +105,7 @@ async function scoreChange(s){
         score=0
         alert('PERDISTE, INTENTA NUEVAMENTE')
         newGameBtn.classList.remove('d-none')
+        numOpciones.classList.remove('d-none')
         return
     }
     await setTimeout(()=>{
@@ -118,6 +122,7 @@ async function corregirEstado(nombre){
 function terminoJuego(){
     alert('Juego finalizado, tu puntuación fué de ' + score)
     newGameBtn.classList.remove('d-none')
+    numOpciones.classList.remove('d-none')
     score=0
     estadosVistos = new Array()
 }
