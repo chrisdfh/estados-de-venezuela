@@ -57,7 +57,7 @@ function preparaCapitales() {
             capitales.push(cap.capital);
         });
         const real = Math.floor(Math.random() * preguntas.length);
-        const estadoCorrecto = preguntas[real];
+        const estadoCorrecto = preguntas[real]; // SELECCIONO POR RANDOM LA RESPUESTA CORRECTA
         nombreEstado.innerText = estadoCorrecto.estado;
         if (estadosVistos.indexOf(estadoCorrecto.estado) != -1) { //SI YA VI UN ESTADO, BUSCO OTRO
             preparaCapitales();
@@ -143,3 +143,4 @@ function pause(time) {
         yield new Promise(r => { setTimeout(r, time); });
     });
 }
+// export {}
